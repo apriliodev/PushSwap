@@ -113,3 +113,12 @@ Error Checklist
     Nothing has been specified when strings and int are mixed. It's up to you what you want to do
 
         ./push_swap "1 2 4 3" 76 90 "348 05
+
+
+
+
+
+
+Pourquoi linked list ?
+Pcq en array ca fait chier de devoir tout bouger pour foutre un nouveau truc en plein millieu
+ou en supprimer 1, alors qu'une liste chainée c'est bien plus simple voili voilou ;)
