@@ -6,11 +6,10 @@
 /*   By: bdecourt <bdecourt@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/16 20:20:23 by bdecourt          #+#    #+#             */
-/*   Updated: 2026/05/17 01:41:31 by bdecourt         ###   ########.fr       */
+/*   Updated: 2026/05/17 01:42:53 by bdecourt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*Pareil ici*/
 #include "push_swap.h"
 #include "libft.h"
 #include "printf.h"
