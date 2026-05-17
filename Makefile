@@ -1,38 +1,45 @@
-J'AI VOLER CELUI DE MON printf
-
-/!\ A MODIF 
-
-
-SRC = ft_printf.c
-SRC_ARG = $(addprefix arguments/, printf_c.c printf_d.c printf_p.c printf_s.c printf_u.c printf_x.c)
+SRC =	push_swap.c \
+		algorithms/disorder.c \
+		algorithms/utils.c \
+		algorithms/bubblesort.c \
+		algorithms/chunkbased.c \
+		algorithms/radix.c \
+		algorithms/three.c \
+		operations/swap.c \
+		operations/push.c \
+		operations/rotate.c \
+		operations/rrotate.c
 
 OBJS := $(SRC:%.c=%.o)
-OBJS_ARG := $(SRC_ARG:%.c=%.o)
 
-NAME = libftprintf.a
+NAME = push_swap
 CC = gcc
 CCFLAGS = -Werror -Wall -Wextra
 INC_DIR = .
+LIBFT_DIR = libft
+PRINTF_DIR = printf
 
 %.o: %.c
-	$(CC) -I$(INC_DIR) $(CCFLAGS) -o $@ -c $?
+	$(CC) -I$(INC_DIR) -I$(LIBFT_DIR) -I$(PRINTF_DIR) $(CCFLAGS) -o $@ -c $<
 
-all: $(NAME)
+all: libs $(NAME)
 
-$(NAME): $(OBJS)  $(OBJS_ARG)
-	ar rcs $(NAME) $(OBJS)  $(OBJS_ARG)
-	ranlib $(NAME)
+libs:
+	make -C $(LIBFT_DIR)
+	make -C $(PRINTF_DIR)
+
+$(NAME): $(OBJS)
+	$(CC) $(CCFLAGS) -o $(NAME) $(OBJS) -L$(LIBFT_DIR) -lft -L$(PRINTF_DIR) -lftprintf
 
 clean:
-	rm -f $(OBJS)  $(OBJS_ARG)
+	rm -f $(OBJS)
 
 fclean: clean
 	rm -f $(NAME)
 
 re: fclean all
 
-clear: fclean 
+clear: fclean
 	clear
 
-test: all
-	gcc $(CCFLAGS) -I. -L. -lftprintf test.c
+.PHONY: all clean fclean re clear libs
