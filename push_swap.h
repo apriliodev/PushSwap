@@ -6,7 +6,7 @@
 /*   By: bdecourt <bdecourt@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/16 20:30:31 by bdecourt          #+#    #+#             */
-/*   Updated: 2026/05/17 18:59:56 by bdecourt         ###   ########.fr       */
+/*   Updated: 2026/05/17 19:43:27 by bdecourt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,17 @@ float				compute_disorder(t_stack *stack_a);
 /* algorithms/first.c */
 void				bubble_sort(t_stack **stack);
 
-/*algorithms/utils.c*/
-int					stack_size(t_stack *stack);
+/* algorithms/utils.c */
+int         ft_sqrt(int n);
+int         get_chunk_size(t_stack *stack);
+void        assign_index(t_stack *stack);
+int         stack_size(t_stack *stack);
+t_stack     *stack_last(t_stack *stack);
+
+/* algorithms/chunk.c */
+void        push_chunk(t_stack **a, t_stack **b, int min, int max);
+t_stack     *find_max_b(t_stack *b);
+void        bring_back(t_stack **a, t_stack **b);
+void        chunk_sort(t_stack **a, t_stack **b);
+
 #endif

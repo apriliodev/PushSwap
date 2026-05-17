@@ -6,7 +6,7 @@
 /*   By: bdecourt <bdecourt@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/16 20:29:17 by bdecourt          #+#    #+#             */
-/*   Updated: 2026/05/17 19:01:15 by bdecourt         ###   ########.fr       */
+/*   Updated: 2026/05/17 19:04:51 by bdecourt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static void rotating(t_stack **stack)
     
     tmp = *stack;
     *stack = (*stack)->next;
-    tail = ft_lstlast(*stack);
+    tail = stack_last(*stack);
     tmp->next = NULL;
     tail->next = tmp;
 }
