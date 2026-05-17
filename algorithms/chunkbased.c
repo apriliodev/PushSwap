@@ -6,7 +6,7 @@
 /*   By: bdecourt <bdecourt@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/17 19:22:20 by bdecourt          #+#    #+#             */
-/*   Updated: 2026/05/17 19:53:11 by bdecourt         ###   ########.fr       */
+/*   Updated: 2026/05/17 20:10:13 by bdecourt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,33 +14,50 @@
 
 void	push_chunk(t_stack **stack_a, t_stack **stack_b, int min, int max)
 {
-    int i;
-    int n;
+	int	i;
+	int	n;
 
-    i = 0;
-    n = stack_size(*stack_a);
-    while (i < n)
-    {
-        if ((*stack_a)->index >= min && (*stack_a)->index < max)
-            do_pb(stack_a, stack_b);
-        else
-            do_ra(stack_a);
-        i++;
-    }
+	i = 0;
+	n = stack_size(*stack_a);
+	while (i < n)
+	{
+		if ((*stack_a)->index >= min && (*stack_a)->index < max)
+			do_pb(stack_a, stack_b);
+		else
+			do_ra(stack_a);
+		i++;
+	}
 }
 
-t_stack     *find_max_b(t_stack *b)
+t_stack	*find_max_b(t_stack *b)
 {
-    t_stack *max;
-    t_stack *tmp;
+	t_stack	*max;
+	t_stack	*tmp;
 
-    max = b;
-    tmp = b;
-    while (tmp)
-    {
-        if(tmp->index > max->index)
-            max = tmp;
-        tmp = tmp->next;
-    }
-    return (max);
+	max = b;
+	tmp = b;
+	while (tmp)
+	{
+		if (tmp->index > max->index)
+			max = tmp;
+		tmp = tmp->next;
+	}
+	return (max);
+}
+
+void	bring_back(t_stack **stack_a, t_stack **stack_b)
+{
+	t_stack	*max;
+
+	while (*stack_b)
+	{
+		max = find_max_b(*stack_b);
+		while (*stack_b != max)
+			do_rb(stack_b);
+		do_pa(stack_a, stack_b);
+	}
+}
+
+void	chunk_sort(t_stack **a, t_stack **b)
+{
 }
