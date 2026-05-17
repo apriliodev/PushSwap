@@ -6,7 +6,7 @@
 /*   By: bdecourt <bdecourt@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/16 20:20:23 by bdecourt          #+#    #+#             */
-/*   Updated: 2026/05/17 18:09:14 by bdecourt         ###   ########.fr       */
+/*   Updated: 2026/05/17 18:34:27 by bdecourt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ static void	swaping(t_stack *stack)
 
 	if (stack == NULL || stack->next == NULL)
 		return ;
-	tmp = stack->content;
-	stack->content = stack->next->content;
-	stack->next->content = tmp;
+	tmp = stack->value;
+	stack->value = stack->next->value;
+	stack->next->value = tmp;
 	tmp = stack->index;
 	stack->index = stack->next->index;
 	stack->next->index = tmp;
