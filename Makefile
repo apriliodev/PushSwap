@@ -1,4 +1,6 @@
 SRC =	push_swap.c \
+		parsing.c \
+		stack.c \
 		algorithms/disorder.c \
 		algorithms/utils.c \
 		algorithms/bubblesort.c \

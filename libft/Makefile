@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: bdecourt <baptiste.decourtray@learner.4    +#+  +:+       +#+         #
+#    By: bdecourt <bdecourt@learner.42.tech>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/04/28 13:57:19 by bdecourt          #+#    #+#              #
-#    Updated: 2026/04/28 13:57:21 by bdecourt         ###   ########.fr        #
+#    Updated: 2026/05/17 23:53:26 by bdecourt         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ PART1 = ft_tolower.c ft_toupper.c ft_isprint.c ft_isascii.c ft_isalnum.c \
 PART2 = ft_itoa.c ft_strjoin.c ft_split.c ft_striteri.c ft_strmapi.c \
 		ft_substr.c ft_strtrim.c ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c \
 		ft_putnbr_fd.c ft_lstnew.c ft_lstadd_front.c ft_lstadd_back.c ft_lstdelone.c ft_lstclear.c \
-		ft_lstiter.c ft_lstmap.c ft_lstsize.c ft_lstlast.c
+		ft_lstiter.c ft_lstmap.c ft_lstsize.c ft_lstlast.c ft_atol.c
 
 SRC = ${PART1} ${PART2}
 

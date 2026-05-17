@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bdecourt <baptiste.decourtray@learner.4    +#+  +:+       +#+        */
+/*   By: bdecourt <bdecourt@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/22 14:39:52 by bdecourt          #+#    #+#             */
-/*   Updated: 2026/04/28 13:57:25 by bdecourt         ###   ########.fr       */
+/*   Updated: 2026/05/17 23:53:15 by bdecourt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,5 +76,7 @@ void				ft_lstclear(t_list **lst, void (*del)(void *));
 void				ft_lstiter(t_list *lst, void (*f)(void *));
 t_list				*ft_lstmap(t_list *lst, void *(*f)(void *),
 						void (*del)(void *));
+
+long				ft_atol(char *str);
 
 #endif
