@@ -6,7 +6,7 @@
 /*   By: bdecourt <bdecourt@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/17 01:42:57 by bdecourt          #+#    #+#             */
-/*   Updated: 2026/05/17 01:48:16 by bdecourt         ###   ########.fr       */
+/*   Updated: 2026/05/17 18:53:59 by bdecourt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,12 @@ void	pushing(t_stack **res, t_stack **des)
 
 void do_pa(t_stack **stack_a, t_stack **stack_b)
 {
-    push(stack_a, stack_b);
+    pushing(stack_a, stack_b);
     ft_printf("%s", "pa\n");
 }
 
 void do_pb(t_stack **stack_a, t_stack **stack_b)
 {
-    push(stack_b, stack_a);
+    pushing(stack_b, stack_a);
     ft_printf("%s", "pb\n");
 }

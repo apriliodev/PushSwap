@@ -6,12 +6,12 @@
 /*   By: bdecourt <bdecourt@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/16 20:20:23 by bdecourt          #+#    #+#             */
-/*   Updated: 2026/05/17 18:34:27 by bdecourt         ###   ########.fr       */
+/*   Updated: 2026/05/17 19:00:57 by bdecourt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include "printf.h"
+#include "libft/libft.h"
+#include "printf/ft_printf.h"
 #include "push_swap.h"
 
 static void	swaping(t_stack *stack)

@@ -6,13 +6,13 @@
 /*   By: bdecourt <bdecourt@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/16 20:29:17 by bdecourt          #+#    #+#             */
-/*   Updated: 2026/05/17 01:27:42 by bdecourt         ###   ########.fr       */
+/*   Updated: 2026/05/17 19:01:15 by bdecourt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include "libft.h"
-#include "ft_printf.h"
+#include "libft/libft.h"
+#include "printf/ft_printf.h"
 
 /*Pas d'explication ici tu peux capter avec celles dans rrotate.c*/
 
