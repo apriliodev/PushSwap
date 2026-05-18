@@ -35,9 +35,13 @@ $(NAME): $(OBJS)
 
 clean:
 	rm -f $(OBJS)
+	make -C $(LIBFT_DIR) clean
+	make -C $(PRINTF_DIR) clean
 
 fclean: clean
-	rm -f $(NAME) 
+	rm -f $(NAME)
+	make -C $(LIBFT_DIR) fclean
+	make -C $(PRINTF_DIR) fclean
 
 re: fclean all
 
