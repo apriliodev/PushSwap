@@ -6,7 +6,7 @@
 /*   By: bdecourt <bdecourt@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/17 19:22:20 by bdecourt          #+#    #+#             */
-/*   Updated: 2026/05/18 13:56:16 by bdecourt         ###   ########.fr       */
+/*   Updated: 2026/05/18 14:38:15 by bdecourt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ int	find_pos(t_stack *stack, t_stack *node)
 	}
 	return (pos);
 }
+
 void	bring_back(t_stack **stack_a, t_stack **stack_b)
 {
 	t_stack	*max;
@@ -82,7 +83,6 @@ void	bring_back(t_stack **stack_a, t_stack **stack_b)
 		do_pa(stack_a, stack_b);
 	}
 }
-
 
 void	chunk_sort(t_stack **stack_a, t_stack **stack_b)
 {

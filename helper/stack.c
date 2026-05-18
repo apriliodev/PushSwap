@@ -6,7 +6,7 @@
 /*   By: bdecourt <bdecourt@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/17 23:42:13 by bdecourt          #+#    #+#             */
-/*   Updated: 2026/05/17 23:47:27 by bdecourt         ###   ########.fr       */
+/*   Updated: 2026/05/18 14:41:34 by bdecourt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,13 @@ static void	add_back(t_stack **stack, t_stack *node)
 	last->next = node;
 }
 
+static t_stack	*new_validated_node(char *arg)
+{
+	if (!is_number(arg) || !is_in_range(arg))
+		return (NULL);
+	return (new_node(ft_atoi(arg)));
+}
+
 t_stack	*create_stack(int argc, char **argv, int start)
 {
 	t_stack	*stack;
@@ -60,12 +67,7 @@ t_stack	*create_stack(int argc, char **argv, int start)
 	i = start;
 	while (i < argc)
 	{
-		if (!is_number(argv[i]) || !is_in_range(argv[i]))
-		{
-			free_stack(&stack);
-			return (NULL);
-		}
-		node = new_node(ft_atoi(argv[i]));
+		node = new_validated_node(argv[i]);
 		if (!node)
 		{
 			free_stack(&stack);

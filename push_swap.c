@@ -6,30 +6,30 @@
 /*   By: bdecourt <bdecourt@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/16 20:31:20 by bdecourt          #+#    #+#             */
-/*   Updated: 2026/05/18 14:00:30 by bdecourt         ###   ########.fr       */
+/*   Updated: 2026/05/18 14:35:04 by bdecourt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void    sort(t_stack **a, t_stack **b)
+void	sort(t_stack **a, t_stack **b)
 {
-    float   disorder;
+	float	disorder;
 
-    assign_index(*a);
-    disorder = compute_disorder(*a);
-    if (disorder < 0.2)
-        bubble_sort(a);
-    else if (disorder < 0.5)
-        chunk_sort(a, b);
-    else
-        radix_sort(a, b);
+	assign_index(*a);
+	disorder = compute_disorder(*a);
+	if (disorder < 0.2)
+		bubble_sort(a);
+	else if (disorder < 0.5)
+		chunk_sort(a, b);
+	else
+		radix_sort(a, b);
 }
 
 static void	error(t_stack **a)
 {
 	free_stack(a);
-    write(2, "Error\n", 6);
+	write(2, "Error\n", 6);
 }
 
 static int	get_flag(char *arg)

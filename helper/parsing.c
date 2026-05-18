@@ -6,7 +6,7 @@
 /*   By: bdecourt <bdecourt@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/17 23:40:14 by bdecourt          #+#    #+#             */
-/*   Updated: 2026/05/17 23:47:29 by bdecourt         ###   ########.fr       */
+/*   Updated: 2026/05/18 14:42:40 by bdecourt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ int	is_number(char *str)
 	}
 	return (1);
 }
+
 int	is_in_range(char *str)
 {
 	long	n;

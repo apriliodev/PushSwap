@@ -1,6 +1,6 @@
 SRC =	push_swap.c \
-		parsing.c \
-		stack.c \
+		helper/parsing.c \
+		helper/stack.c \
 		algorithms/disorder.c \
 		algorithms/utils.c \
 		algorithms/bubblesort.c \
@@ -37,7 +37,7 @@ clean:
 	rm -f $(OBJS)
 
 fclean: clean
-	rm -f $(NAME)
+	rm -f $(NAME) 
 
 re: fclean all
 
