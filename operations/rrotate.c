@@ -6,7 +6,7 @@
 /*   By: bdecourt <bdecourt@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/17 01:14:45 by bdecourt          #+#    #+#             */
-/*   Updated: 2026/05/17 19:16:19 by bdecourt         ###   ########.fr       */
+/*   Updated: 2026/05/18 14:09:49 by bdecourt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ static void r_rotating(t_stack **stack)
     t_stack *tail;
     t_stack *btail;
 
+    if (!*stack || !(*stack)->next)
+        return ;
     tail = stack_last(*stack); /*On donne a tail la valeur de la tail (Fin de chaine)*/
     btail = before_tail(*stack); /*Ma fonction beforetail qui recupere le node juste avant la tail*/
     tmp = *stack; /*tmp prend la valeur de stack (premier node)*/

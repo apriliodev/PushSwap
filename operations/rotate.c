@@ -6,7 +6,7 @@
 /*   By: bdecourt <bdecourt@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/16 20:29:17 by bdecourt          #+#    #+#             */
-/*   Updated: 2026/05/17 19:04:51 by bdecourt         ###   ########.fr       */
+/*   Updated: 2026/05/18 14:09:18 by bdecourt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,13 @@
 
 /*Pas d'explication ici tu peux capter avec celles dans rrotate.c*/
 
-static void rotating(t_stack **stack)
+static void	rotating(t_stack **stack)
 {
     t_stack *tmp;
     t_stack *tail;
-    
+
+    if (!*stack || !(*stack)->next)
+        return ;
     tmp = *stack;
     *stack = (*stack)->next;
     tail = stack_last(*stack);

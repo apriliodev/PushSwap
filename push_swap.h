@@ -6,7 +6,7 @@
 /*   By: bdecourt <bdecourt@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/16 20:30:31 by bdecourt          #+#    #+#             */
-/*   Updated: 2026/05/17 23:49:39 by bdecourt         ###   ########.fr       */
+/*   Updated: 2026/05/18 13:56:48 by bdecourt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,8 +56,7 @@ t_stack				*stack_last(t_stack *stack);
 int					ft_sqrt(int n);
 int					get_chunk_size(t_stack *stack);
 void				assign_index(t_stack *stack);
-long				ft_atol(char *str);
-
+int					find_pos(t_stack *stack, t_stack *node);
 /* algorithms/radix.c */
 int					ft_log2(int n);
 void				radix_sort(t_stack **stack_a, t_stack **stack_b);
