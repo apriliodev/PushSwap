@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   printf_c.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bdecourt <bdecourt@learner.42.tech>        +#+  +:+       +#+        */
+/*   By: machapui <machapui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/03 23:25:07 by bdecourt          #+#    #+#             */
-/*   Updated: 2026/05/05 23:11:02 by bdecourt         ###   ########.fr       */
+/*   Updated: 2026/05/27 11:33:43 by machapui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	printf_c(char c)
+int	printf_c(char c, int fd)
 {
-	if (write(1, &c, 1) == -1)
+	if (write(fd, &c, 1) == -1)
 		return (-1);
 	return (1);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bdecourt <bdecourt@learner.42.tech>        +#+  +:+       +#+        */
+/*   By: machapui <machapui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/16 20:20:23 by bdecourt          #+#    #+#             */
-/*   Updated: 2026/05/18 14:35:43 by bdecourt         ###   ########.fr       */
+/*   Updated: 2026/06/01 11:32:51 by machapui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,21 +28,27 @@ static void	swaping(t_stack *stack)
 	stack->next->index = tmp;
 }
 
-void	do_sa(t_stack **stack_a)
+void	do_sa(t_stack **stack_a, t_count *count)
 {
 	swaping(*stack_a);
-	ft_printf("%s", "sa\n");
+	ft_printf(1, "%s", "sa\n");
+	count->sa++;
+	count->total++;
 }
 
-void	do_sb(t_stack **stack_b)
+void	do_sb(t_stack **stack_b, t_count *count)
 {
 	swaping(*stack_b);
-	ft_printf("%s", "sb\n");
+	ft_printf(1, "%s", "sb\n");
+	count->sb++;
+	count->total++;
 }
 
-void	do_ss(t_stack **stack_a, t_stack **stack_b)
+void	do_ss(t_stack **stack_a, t_stack **stack_b, t_count *count)
 {
 	swaping(*stack_a);
 	swaping(*stack_b);
-	ft_printf("%s", "ss\n");
+	ft_printf(1, "%s", "ss\n");
+	count->ss++;
+	count->total++;
 }

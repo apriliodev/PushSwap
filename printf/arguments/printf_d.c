@@ -3,52 +3,52 @@
 /*                                                        :::      ::::::::   */
 /*   printf_d.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bdecourt <bdecourt@learner.42.tech>        +#+  +:+       +#+        */
+/*   By: machapui <machapui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/03 23:27:03 by bdecourt          #+#    #+#             */
-/*   Updated: 2026/05/05 23:10:27 by bdecourt         ###   ########.fr       */
+/*   Updated: 2026/05/27 11:33:43 by machapui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_putchar(char c)
+void	ft_putchar(char c, int fd)
 {
-	write(1, &c, 1);
+	write(fd, &c, 1);
 }
 
-int	ft_putnbr(int nb)
+int	ft_putnbr(int nb, int fd)
 {
 	int	count;
 
 	count = 0;
 	if (nb == -2147483648)
-		count += write(1, "-2147483648", 11);
+		count += write(fd, "-2147483648", 11);
 	else if (nb < 0)
 	{
-		count += write(1, "-", 1);
+		count += write(fd, "-", 1);
 		nb = -nb;
-		count += ft_putnbr(nb);
+		count += ft_putnbr(nb, fd);
 	}
 	else
 	{
 		if (nb >= 10)
 		{
-			count += ft_putnbr(nb / 10);
-			count += ft_putnbr(nb % 10);
+			count += ft_putnbr(nb / 10, fd);
+			count += ft_putnbr(nb % 10, fd);
 		}
 		else
-			count += printf_c(nb + 48);
+			count += printf_c(nb + 48, fd);
 	}
 	return (count);
 }
 
-int	printf_d(int nb)
+int	printf_d(int nb, int fd)
 {
 	int	count;
 
 	count = 0;
-	count += ft_putnbr(nb);
+	count += ft_putnbr(nb, fd);
 	if (count < 0)
 		return (-1);
 	return (count);

@@ -1,5 +1,5 @@
 SRC = ft_printf.c
-SRC_ARG = $(addprefix arguments/, printf_c.c printf_d.c printf_p.c printf_s.c printf_u.c printf_x.c)
+SRC_ARG = $(addprefix arguments/, printf_c.c printf_d.c printf_p.c printf_s.c printf_u.c printf_x.c print_f.c)
 
 OBJS := $(SRC:%.c=%.o)
 OBJS_ARG := $(SRC_ARG:%.c=%.o)

@@ -3,14 +3,15 @@ SRC =	push_swap.c \
 		helper/stack.c \
 		algorithms/disorder.c \
 		algorithms/utils.c \
-		algorithms/bubblesort.c \
+		algorithms/selectionsort.c \
 		algorithms/chunkbased.c \
 		algorithms/radix.c \
-		algorithms/three.c \
 		operations/swap.c \
 		operations/push.c \
 		operations/rotate.c \
-		operations/rrotate.c
+		operations/rrotate.c \
+		ft_bench.c\
+		ft_utilspushswap.c
 
 OBJS := $(SRC:%.c=%.o)
 

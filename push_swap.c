@@ -6,30 +6,30 @@
 /*   By: bdecourt <bdecourt@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/16 20:31:20 by bdecourt          #+#    #+#             */
-/*   Updated: 2026/05/18 14:35:04 by bdecourt         ###   ########.fr       */
+/*   Updated: 2026/06/14 23:52:51 by bdecourt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sort(t_stack **a, t_stack **b)
+char	*sort(t_stack **a, t_stack **b, t_count *count)
 {
 	float	disorder;
 
 	assign_index(*a);
 	disorder = compute_disorder(*a);
 	if (disorder < 0.2)
-		bubble_sort(a);
+	{
+		selection_sort(a, b, count);
+		return ("O(n2)");
+	}
 	else if (disorder < 0.5)
-		chunk_sort(a, b);
-	else
-		radix_sort(a, b);
-}
-
-static void	error(t_stack **a)
-{
-	free_stack(a);
-	write(2, "Error\n", 6);
+	{
+		chunk_sort(a, b, count);
+		return ("O(n√n)");
+	}
+	radix_sort(a, b, count);
+	return ("O(n log n)");
 }
 
 static int	get_flag(char *arg)
@@ -45,40 +45,54 @@ static int	get_flag(char *arg)
 	return (0);
 }
 
-static void	run_sort(t_stack **a, t_stack **b, int flag)
+static void	error(t_stack **a)
+{
+	free_stack(a);
+	write(2, "Error\n", 6);
+}
+
+static char	*run_sort(t_stack **a, t_stack **b, int flag, t_count *count)
 {
 	assign_index(*a);
+	if (is_sorted(*a))
+		return ("O(1)");
 	if (flag == 1)
-		bubble_sort(a);
+	{
+		selection_sort(a, b, count);
+		return ("O(n2)");
+	}
 	else if (flag == 2)
-		chunk_sort(a, b);
+	{
+		chunk_sort(a, b, count);
+		return ("O(n√n)");
+	}
 	else if (flag == 3)
-		radix_sort(a, b);
-	else
-		sort(a, b);
+	{
+		radix_sort(a, b, count);
+		return ("O(n log n)");
+	}
+	return (sort(a, b, count));
 }
 
 int	main(int argc, char **argv)
 {
-	t_stack	*stack_a;
-	t_stack	*stack_b;
-	int		flag;
-	int		start;
+	t_arg	ss;
 
 	if (argc == 1)
 		return (0);
-	flag = get_flag(argv[1]);
-	start = 1;
-	if (flag > 0)
-		start = 2;
-	stack_a = create_stack(argc, argv, start);
-	if (!stack_a)
-	{
-		error(&stack_a);
-		return (1);
-	}
-	stack_b = NULL;
-	run_sort(&stack_a, &stack_b, flag);
-	free_stack(&stack_a);
+	ss.count = zero_for_touch(ss.count);
+	ss.count.bench = (check_bench(argv) == 0);
+	ss.flag = get_flag(argv[1 + (check_bench(argv) == 0)]);
+	ss.start = 1 + (ss.flag > 0) + (check_bench(argv) == 0);
+	ss.stack_a = create_stack(argc, argv, ss.start);
+	if (!ss.stack_a)
+		return (error(&ss.stack_a), 1);
+	ss.stack_b = NULL;
+	ss.disbench = compute_disorder(ss.stack_a);
+	ss.str = run_sort(&ss.stack_a, &ss.stack_b, ss.flag, &ss.count);
+	ss.count.str = ss.str;
+	free_stack(&ss.stack_a);
+	if (check_bench(argv) == 0)
+		ft_bench(argv[1], ss.disbench, &ss.count);
 	return (0);
 }
